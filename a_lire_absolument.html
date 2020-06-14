@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin:0;
+                background-color: #8ABAF5;
+            }
+
+            nav {
+                /* Entête fixe en haut de page */
+                position: sticky;
+                top: 0;
+                display :flex;
+                justify-content: center;
+                z-index: 2;
+                flex-direction: column;
+                background-color: #8ABAF5;
+
+
+            }
+
+            #navigation input{
+                display: flex;
+                float: left;
+                flex-wrap: wrap;
+                flex : 1;
+                flex-grow: 1;
+                justify-content: center;
+            }
+            #navigation, #titre_site{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            input {
+                background-color: #CDCDCD;
+                border:none;
+                text-align: center;
+                padding: 14px 16px;
+                font-family: verdana;
+            }
+
+            input:hover:not(.active){
+                background-color: #C1C1C1;
+            }
+            .active{
+                background-color: #9696A0;
+            }
+
+            .corps{
+                display: flex;
+                margin-top:10px;
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+                z-index: 1; 
+                position : relative;
+
+            }
+
+            p{
+                font-family: Verdana;
+                
+            }
+            a{
+                padding-bottom:0px;
+                margin:none;
+
+            }
+
+            .description{
+                background-color: #4286DC;
+                padding : 10px 0px 10px 0px;
+                position : relative;
+                width: 600px;
+
+            }
+            #commentaire{
+
+                border-top: solid gray; 
+                border-bottom: solid gray; 
+                width:700px;
+                padding: 10px;
+            }
+            #pied_page{
+
+                display:flex;
+                flex-direction: left;
+                justify-content: center;
+                border-top: solid black; 
+                border-bottom: solid black; 
+                width: 1000px;
+                padding-top:10px;
+            }
+            .img_pied_page{
+                width: 50px;
+                height: 50px;
+                margin: 0px 10px 0px 10px;
+            }
+
+            .gras{
+                font-family: fantasy; 
+
+            }
+            footer p{
+                width: 420px; 
+                font-size:20px;
+                font-style: italic;
+            }
+            #monologue{
+                background-color: white;
+                border: none;
+                max-width: 1000px;
+                /*padding: 20px;*/
+            }
+            #titreMonologue {
+                background-color: #CDCDCD;
+                margin: 0px;
+                padding:30px;
+                font-size: 30px;
+            }
+            #corpsMonologue{
+                background-color: white;
+                margin: 0px;
+                padding: 40px;
+                text-align: justify;
+                max-width: 900px;
+                font-size: 20px;
+            }
+            #basMonologue{
+                display: flex;
+                flex-direction: left;
+                justify-content: center;
+                padding: 15px;
+                background-color: #CDCDCD;
+            }
+            #texteBasPage{
+                margin-right : 15px;
+                margin-top: 9px;
+            }
+            #changementPage{
+            	box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.44);
+            	height: 35px;
+            	border:none;
+            }
+            #changementPage:hover{
+            	background-color: #E0DFDF;
+            }
+
+        </style>
+    </head>
+    <body>
+        <head>
+            <nav>  
+                <div id="titre_site" >
+                    <p style="font-family: fantasy; font-size: 35px; margin:10px">Useless Site</p>
+                </div>
+                <div id = "navigation">
+                	<a href="accueil.html"> <input type="button" value="Accueil"> </a>
+                    <a href="a_lire_absolument.html"> <input type="button" class ="active" value="A lire ABSOLUMENT"> </a>
+                    <a href="sites_inutiles.html"> <input type="button" value="Sites inutiles"> </a>
+                    <a href="choses_a_faire.html"> <input type="button" value="Choses a faire inutiles"> </a>
+                    <a href="a_vous_de_jouer.html"> <input type="button" value="A vous de jouer !"> </a>
+                    <a href="qui_sommes_nous.html"> <input type="button" value="Qui sommes-nous ?"> </a>
+
+                </div>
+
+            </nav>
+        </head>
+        <main>
+            <div class = "corps">
+                <h1>Ce texte va vous impressionner ! (surtout la fin) </h1>
+                <br>
+                <center>
+                    <div id="monologue">
+                        <p id="titreMonologue">Questions existencielles   -   (page 1)</p>
+                        <p id="corpsMonologue">Tout d’abord, merci d’avoir consulté ce site, nous espérons vous avoir fait perdre pas mal de temps et que vous avez apprécié à le faire. Certes, ce texte est aussi là pour vous faire perdre du temps, MAIS ATTENDEZ, vous verrez, vous allez peut-être lire des choses intéressantes. Vous allez voir, la page 5 va vous surprendre. Mais n'y allez pas directement, sinon vous n’allez rien comprendre.
+                    
+                        </p>
+                        <center>
+                            <div id="basMonologue">
+                                <p id="texteBasPage">Lire la suite ! --></p>
+                                <button id="changementPage" onclick ="pageSuivante()">Page suivante</button>
+                            </div>
+                        </center>
+                    </div>
+                </center>
+            </div>
+        <br><br><br>
+        </main>
+
+        <footer>
+            <center>
+                <div id="pied_page">
+
+                    <p><b class="gras">Useless site</b> in collaboration with <b class="gras">Efrei Paris</b></p>
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img class="img_pied_page" src="Images/facebook.png">
+                    </a>
+                    <a href="https://www.instagram.com/?hl=fr" target="_blank">
+                        <img class="img_pied_page" src="Images/instagram.png">
+                    </a>
+                    <a href="https://twitter.com/" target="_blank">
+                        <img class="img_pied_page" src="Images/twitter.png">
+                    </a>
+                    <a href="https://www.efrei.fr/" target="_blank">
+                        <img style="width: 120px; height:50px; margin-left: 10px" src="Images/efrei.png">
+                    </a>
+                    
+                </div>
+
+            </center>
+
+            <br><br><br><br><br><br>
+        </footer>
+    </body>
+    <script type="text/javascript" language="javascript">
+
+
+        //variables globales
+        var num_page = 1;
+        var textesBasPage = ['La suite va vous étonner ! -->', 'Lire la suite EXEPTIONNELLE -->','Passer à la suite -->','Vous n arriverez pas à croire ce qui va se passer -->' ,'INCROYABLE suite -->','Vous ne devinerez jamais ce qui va suivre -->','Connaître le sens de la vie -->','Voir l illumination -->','Personne n avait pensé à la suite avant -->','Ne plus attendre pour lire la suite -->','Bientôt le dénouement -->','Passer à la suite VITE -->']
+
+        function getRandomInt(max, min) {
+            var temp;
+            do{
+                temp = Math.floor(Math.random() * Math.floor(max));
+
+            }while(temp < min || temp > max)
+            return temp;
+        }
+        function changerNumPage(){
+            num_page++;
+            var titre = document.getElementById("titreMonologue");
+            titre.textContent = "Questions existencielles   -   (page " + num_page + ")";
+        }
+
+        function changerTexteBasPage(){
+
+            var texte = document.getElementById("texteBasPage")
+            var nb_aleatoire = getRandomInt(13, 0)
+            var arret = "non"
+            do{
+                if(texte.textContent != textesBasPage[nb_aleatoire]){
+                    texte.textContent = textesBasPage[nb_aleatoire]
+                    arret = "oui"
+                }else{
+                    nb_aleatoire = getRandomInt(11, 0)
+                }
+            }while(arret != "oui")
+            
+        }
+
+        function pageSuivante(){
+
+            changerNumPage()
+            changerTexteBasPage()
+            var nb_aleatoire = getRandomInt(7, 0);
+            var texte = document.getElementById("corpsMonologue")
+            var arret = "non"
+
+            do{
+                if(nb_aleatoire == 0){
+                    if(texte.textContent != "Mais j’aimerai vous poser une question, est-ce que vous vous brosser les dents avant ou après le petit déjeuné ? Toutes les personnes à qui j’ai posé cette question m’ont dit après et ils n’ont pas tort. C’est justement pour enlever toute la crasse des dents après le repas, mais ma grand-mère à dit que quand on se réveille, il y a les bactéries dans notre bouche qui se sont développés et qu’on les avalera si on ne se brosse pas les dents avant."){
+                        texte.textContent = "Mais j’aimerai vous poser une question, est-ce que vous vous brosser les dents avant ou après le petit déjeuné ? Toutes les personnes à qui j’ai posé cette question m’ont dit après et ils n’ont pas tort. C’est justement pour enlever toute la crasse des dents après le repas, mais ma grand-mère à dit que quand on se réveille, il y a les bactéries dans notre bouche qui se sont développés et qu’on les avalera si on ne se brosse pas les dents avant.";
+                        arret = "oui"
+                    }else{
+                        nb_aleatoire = getRandomInt(7, 0)
+                    }
+                }else{
+                    if(nb_aleatoire == 1){
+                        if(texte.textContent != "Mais Confucius a dit : « Le silence est un ami qui ne trahit jamais. » Oui, il n’y a pas de transition, mais je fais ce que je peux. Je voulais juste mettre un petit paragraphe pour lui parce que c’est quand même lui qui a dit que les enfants doivent remercier leurs parents pour les avoir fait naître et donc ils doivent jurer loyauté à son père et sa mère. C’est à cause de lui que je suis esclave de mes parents…"){
+                            texte.textContent = "Mais Confucius a dit : « Le silence est un ami qui ne trahit jamais. » Oui, il n’y a pas de transition, mais je fais ce que je peux. Je voulais juste mettre un petit paragraphe pour lui parce que c’est quand même lui qui a dit que les enfants doivent remercier leurs parents pour les avoir fait naître et donc ils doivent jurer loyauté à son père et sa mère. C’est à cause de lui que je suis esclave de mes parents…";
+                            arret = "oui"
+                        }else{
+                            nb_aleatoire = getRandomInt(7, 0)
+                        }
+
+                    }else{
+                        if(nb_aleatoire == 2){
+                            if(texte.textContent != "Mais pourquoi on s’énerve ? Pourquoi on s’afflige ? Pourquoi est-ce qu’on continue à se plaindre ? Pourquoi on accorde AUTANT d’importance à pain au chocolat ou chocolatine ? Alors qu’il n’y a qu’une minorité qui dit chocolatine et on continue à en parler. On ne peut pas trouver une solution comme l’a déjà fait l’histoire ? On extermine les minorités et on dit qu’ils ont tenté une attaque sur la majorité pour se justifier. Je vous propose LA solution, LA méthode pour résoudre tous nos problèmes, et ça c’est beau. LA solution, c’est maintenant de dire pain aux chocolatines."){
+                                texte.textContent = "Mais pourquoi on s’énerve ? Pourquoi on s’afflige ? Pourquoi est-ce qu’on continue à se plaindre ? Pourquoi on accorde AUTANT d’importance à pain au chocolat ou chocolatine ? Alors qu’il n’y a qu’une minorité qui dit chocolatine et on continue à en parler. On ne peut pas trouver une solution comme l’a déjà fait l’histoire ? On extermine les minorités et on dit qu’ils ont tenté une attaque sur la majorité pour se justifier. Je vous propose LA solution, LA méthode pour résoudre tous nos problèmes, et ça c’est beau. LA solution, c’est maintenant de dire pain aux chocolatines.";
+                                arret = "oui"
+                             }else{
+                                nb_aleatoire = getRandomInt(7, 0)
+                            }
+                        }else{
+                            if(nb_aleatoire == 3){
+                                if(texte.textContent != "Mais vous ne trouvez pas ça bizarre ? Vous ne trouvez pas ça absurde ? Hitler serait végan. Et un point Godwin pour la forme. Mais vous avez vu ? Mes transitions sont parfaites. Mais bon, il est juste là pour faire une blague sur le point Godwin."){
+                                    texte.textContent = "Mais vous ne trouvez pas ça bizarre ? Vous ne trouvez pas ça absurde ? Hitler serait végan. Et un point Godwin pour la forme. Mais vous avez vu ? Mes transitions sont parfaites. Mais bon, il est juste là pour faire une blague sur le point Godwin.";
+                                    arret = "oui"
+                                }else{
+                                    nb_aleatoire = getRandomInt(7, 0)
+                                }
+                            }else{
+                                if(nb_aleatoire == 4){
+                                    if(texte.textContent != "Mais le problème ce n’est pas ça, le problème est encore plus grand, le problème se pose à chaque fois que vous mangez du riz. Vous mettez de la sauce sucrée AVOUEZ-LE ! Le riz se mange avec de la sauce salée ! Si vous ne savez pas de quoi je parle, ce n’est pas grave."){
+                                        texte.textContent = "Mais le problème ce n’est pas ça, le problème est encore plus grand, le problème se pose à chaque fois que vous mangez du riz. Vous mettez de la sauce sucrée AVOUEZ-LE ! Le riz se mange avec de la sauce salée ! Si vous ne savez pas de quoi je parle, ce n’est pas grave.";
+                                        arret = "oui"
+                                    }else{
+                                        nb_aleatoire = getRandomInt(7, 0)
+                                    }
+                                }else{
+                                	if(nb_aleatoire == 5){
+                                		if(texte.textContent != "Mais je ne sais pas si vous avez remarqué, mais quand on achète un paquet de chips, il y a toujours la moitié du paquet qui est composé d’air. Alors je propose une pétition pour payer le paquet de chips deux fois moins chère. Quoi ? L’air dans les paquets de chips est là pour éviter que les chips soient réduites en miette ? Désolé, je n’entends pas ta voix, ton argument est invalide."){
+                                        texte.textContent = "Mais je ne sais pas si vous avez remarqué, mais quand on achète un paquet de chips, il y a toujours la moitié du paquet qui est composé d’air. Alors je propose une pétition pour payer le paquet de chips deux fois moins chère. Quoi ? L’air dans les paquets de chips est là pour éviter que les chips soient réduites en miette ? Désolé, je n’entends pas ta voix, ton argument est invalide.";
+                                        arret = "oui"
+                                    	}else{
+                                        	nb_aleatoire = getRandomInt(7, 0)
+                                    	}
+                                	}else{
+                                		if(nb_aleatoire == 6){
+                                			if(texte.textContent != "Mais j’ai une question pour vous, vous mouiller votre brosse à dent avant ou après avoir mis du dentifrice ? Mouiller avant paraît être plus décent, mais ce débat n’en fini pas. Alors mon père à trouver une solution, c’est de ne pas mouiller sa brosse à dent, ça sera la salive qui le mouillera. À défaut de mouiller sa brosse à dent avant ou après, on le mouillera pendant le brossage."){
+                                        		texte.textContent = "Mais j’ai une question pour vous, vous mouiller votre brosse à dent avant ou après avoir mis du dentifrice ? Mouiller avant paraît être plus décent, mais ce débat n’en fini pas. Alors mon père à trouver une solution, c’est de ne pas mouiller sa brosse à dent, ça sera la salive qui le mouillera. À défaut de mouiller sa brosse à dent avant ou après, on le mouillera pendant le brossage." 
+                                        		arret = "oui";
+	                                    	}else{
+	                                        	nb_aleatoire = getRandomInt(7, 0)
+	                                    	}
+                                		}
+                                	}
+                                }
+                            }
+                        }
+                    }
+                } 
+
+            }while(arret != "oui")
+        }
+    </script>
+</html>
+
+
+

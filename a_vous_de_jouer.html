@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *  { box-sizing: border-box; }
+
+            body {
+                margin:0;
+                background-color: #8ABAF5;}
+
+            nav {
+                /* Entête fixe en haut de page */
+                position: sticky;
+                top: 0;
+                display :flex;
+                justify-content: center;
+                z-index: 2;
+                flex-direction: column;
+                background-color: #8ABAF5;
+
+            }
+
+            p{
+                font-family: Verdana;
+            }
+            a{
+                padding-bottom:0px;
+                margin:none;
+
+            }
+
+            #navigation input{
+                display: flex;
+                float: left;
+                flex : 1;
+                flex-grow: 1;
+                justify-content: center;
+            }
+            #navigation, #titre_site{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            input {
+                background-color: #CDCDCD;
+                text-align: center;
+                padding: 14px 16px;
+                font-family: verdana;
+                border:none;
+            }
+
+            input:hover:not(.active){
+                background-color: #C1C1C1;
+            }
+            .active{
+                background-color: #9696A0;
+            }
+
+            #jeu{
+                margin : 20px 40px 0px 40px;
+                padding: none;
+                width: 91%; 
+                /* height: ;*/
+                background-color : black;
+                position : relative;
+            }
+            #tab_stats{
+                margin-left : 40px;
+                margin-top : none;
+                max-width: 91%;
+                background-color : #EDEDED;
+                display :flex;
+                flex : 1;
+                flex-grow: 1;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .stats{
+                padding : 15px;
+                text-align: center;
+                border: none;
+                background-color: #FFCC00; /* orange vif */
+                border-top : thick double #DFB510;
+                border-left : thick double #DFB510;
+            }
+            .statslocked{
+                padding : 15px;
+                text-align: center;
+                background-color: #DAD8D0; /* gris */
+                border-top : thick double #959595;
+                border-left : thick double #959595;
+                border-bottom : none;
+                border-right : none;
+            }
+            .statslocked:hover{
+                background-color: #DAD8D0;
+            }
+
+            button.stats:hover{
+                background-color: #F0C000; /* orange moins vif */
+            }
+
+            .cochon{
+                width : 100px;
+                height : 100px;
+                position: fixed;
+                opacity: 1;
+            }
+            .lapin{
+                width : 50px;
+                height : 50px;
+                position: fixed;
+                opacity: 1;
+            }
+            .poulet{
+                width : 25px;
+                height : 25px;
+                position: fixed;
+                opacity: 1;
+            }
+            #pied_page{
+
+                display:flex;
+                flex-direction: left;
+                justify-content: center;
+                border-top: solid black; 
+                border-bottom: solid black; 
+                max-width: 1000px;
+                padding-top:10px;
+            }
+            .img_pied_page{
+                width: 50px;
+                height: 50px;
+                margin: 0px 10px 0px 10px;
+            }
+
+            .gras{
+                font-family: fantasy; 
+
+            }
+            footer p{
+                width: 420px; 
+                font-size:20px;
+                font-style: italic;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <head>
+            <nav>  
+                <div id="titre_site" >
+                    <p style="font-family: fantasy; font-size: 35px; margin:10px">Useless Site</p>
+                </div>
+                <div id = "navigation">
+                    <a href="accueil.html"> <input type="button" value="Accueil"> </a>
+                    <a href="a_lire_absolument.html"> <input type="button" value="A lire ABSOLUMENT"> </a>
+                    <a href="sites_inutiles.html"> <input type="button" value="Sites inutiles"> </a>
+                    <a href="choses_a_faire.html"> <input type="button" value="Choses a faire inutiles"> </a>
+                    <a href="a_vous_de_jouer.html"> <input type="button" class ="active" value="A vous de jouer !"> </a>
+                    <a href="qui_sommes_nous.html"> <input type="button" value="Qui sommes-nous ?"> </a>
+
+                </div>
+
+            </nav> 
+        </head>
+        <main>
+
+            <h1 style="position:center; text-align: center;"> <b>Jeu de l'inutilité</b> </h1>
+
+            <div id = "jeu">
+
+
+
+            </div>
+            <div id ="tab_stats">
+                <div class = "stats">
+                    Score : <div id = "score">0</div>
+                </div>
+                <div class = "stats">
+                    Vitesse :<div id = "vitesse">0</div>
+                </div>
+                <div class = "stats">
+                    Temps perdu au total sur ce jeu pas fou :<div id = "temps_perdu">0</div>
+                </div>
+                <div class = "stats">
+                    Nombre de parties :<div id = "nombre_parties">0</div>
+                </div>
+                <button class = "stats" id="règles" onclick ="règles()"> <img src="Images/information.png" style="width:40px; height: 40px;"></button>
+                <button class = "stats" id ="demarrer_partie" onclick="debut_partie();lockButtons()">Début partie !</button>
+            </div>
+            <br><br><br><br>
+        </main>
+
+        <footer>
+            <center>
+                <div id="pied_page">
+
+                    <p><b class="gras">Useless site</b> in collaboration with <b class="gras">Efrei Paris</b></p>
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img class="img_pied_page" src="Images/facebook.png">
+                    </a>
+                    <a href="https://www.instagram.com/?hl=fr" target="_blank">
+                        <img class="img_pied_page" src="Images/instagram.png">
+                    </a>
+                    <a href="https://twitter.com/" target="_blank">
+                        <img class="img_pied_page" src="Images/twitter.png">
+                    </a>
+                    <a href="https://www.efrei.fr/" target="_blank">
+                        <img style="width: 120px; height:50px; margin-left: 10px" src="Images/efrei.png">
+                    </a>
+                    
+                </div>
+
+            </center>
+
+            <br><br><br><br><br><br>
+        </footer>
+
+    </body>
+        <script type="text/javascript" language="javascript">
+
+        // adaptation de la hauteur du cadre du jeux
+        let jeu = document.getElementById("jeu")
+        jeu.style.height = screen.height*0.55 + "px";
+
+
+//////////////////// INITIALISATION VALEURS ////////////////////
+
+        //variables utilisées en global pour la fonction debut_partie()
+        var timer;
+        var interval;
+        var ten_sec;
+        var time_debut_partie;
+        var interval_total_partie;
+        var temps_total_parties = 0;
+        var fin_partie = "non;"
+        //var nb_animal_a_la_fois = 1
+
+        //variable du score / nb animaux / nb parties jouées / temps perdu au total sur le jeu global
+        var score = 0;
+        var nb_animal = 0;
+        var nb_parties = 0;
+        var temps_perdu = 0;
+
+//////////////////// CALCUL POSITIONS ALEATOIRES ////////////////////
+
+        function getRandomInt(max, min) {
+            var temp;
+            do{
+                temp = Math.floor(Math.random() * Math.floor(max));
+
+            }while(temp < min || temp > max)
+            return temp;
+        }
+
+        function getRandomX(L_im){
+            //console.log("L_im :" + L_im)
+            var cadre_jeu = document.getElementById("jeu");
+            var pos_x = getRandomInt(cadre_jeu.offsetWidth - L_im, 0); 
+            //console.log("pos x :" + pos_x)
+            return pos_x;
+        }
+        function getRandomY(H_im){
+            //console.log("H_im :" + H_im)
+            var cadre_jeu = document.getElementById("jeu");
+            var pos_y = getRandomInt(cadre_jeu.offsetHeight - H_im, 0); 
+            //console.log("pos y :" + pos_y)
+            return pos_y;
+        }
+
+//////////////////// CREATION ANIMAUX ////////////////////
+
+        function createAnimal(){
+
+           // multiplierAnimaux()
+
+            //console.log("CREATION ANIMAL")
+            var choix = getRandomInt(100, 0); // [0 ; 99]
+            var animal = document.createElement("img");   
+            if (fin_partie != "oui"){
+
+                if(choix <= 59){
+                    //COCHON = 60% de chance
+                    animal.class = "cochon";
+                    animal.src = "Images/cochon.png";
+                    animal.style.width = "100px";
+                    animal.style.height = "100px";
+                    animal.style.left = getRandomX(100) + "px";
+                    animal.style.top = getRandomY(100) + "px";
+
+                }else{
+                    if(choix <= 89){
+                        //LAPIN = 30% de chance
+                        animal.class = "lapin";
+                        animal.src = "Images/lapin.png";
+                        animal.style.width = "50px";
+                        animal.style.height = "50px";
+                        animal.style.left = getRandomX(50) + "px";
+                        animal.style.top = getRandomY(50) + "px";
+
+                    }else{
+                        //POULET = 10% de chance
+                        animal.class = "poulet";
+                        animal.src = "Images/poulet.png";
+                        animal.style.width = "25px";
+                        animal.style.height = "25px";
+                        animal.style.left = getRandomX(25) + "px";
+                        animal.style.top = getRandomY(25) + "px";
+
+                    }
+                }
+                animal.id = "animal_" + nb_animal;
+                nb_animal++;
+
+                animal.style.position = "relative";
+                animal.setAttribute('onclick', "clickAnimaux(this)")
+
+                setTimeout(testPerdu, 10000, animal.id);
+                disparitionAnimaux(animal.id)
+            }else{
+
+                animal.src = "Images/perdu.png";
+                animal.style.width = "700px";
+                animal.style.height = "350px";
+                var cadre_jeu = document.getElementById("jeu");
+
+                console.log("cadre_jeu.offsetWidth :" + cadre_jeu.offsetWidth)
+                console.log("cadre_jeu.offsetHeight :" + cadre_jeu.offsetHeight)
+                animal.style.left = (cadre_jeu.offsetWidth / 2) - 350 + "px";
+                animal.style.top =  (cadre_jeu.offsetHeight / 2) - 175 + "px";
+
+                animal.style.position = "relative";
+            }
+
+            let abso = document.createElement("div")
+            abso.style.position = "absolute"    
+            document.getElementById("jeu").appendChild(abso)
+            abso.appendChild(animal)
+            
+        }
+
+//////////////////// DEBUT DE PARTIE ////////////////////
+
+        function debut_partie(){
+
+            clearAnimaux();
+
+            fin_partie = "non"
+            var bouton_demarrer = document.getElementById("demarrer_partie")
+            bouton_demarrer.innerHTML = "Partie en cours..."
+
+            timer = 2000;
+            affichageVitesse();
+            //console.log("timer" + timer)
+            interval = setInterval(createAnimal, timer);
+            ten_sec = setInterval(divTimerBy20Percent, 10000);
+            time_debut_partie = new Date().getTime();
+
+        }
+
+        function lockButtons(){
+
+            bouton_demarrer = document.getElementById("demarrer_partie");
+            bouton_règles = document.getElementById("règles");
+
+            bouton_demarrer.setAttribute('onclick', "")
+            bouton_règles.setAttribute('onclick', "")
+
+            bouton_demarrer.classList.remove("stats");
+            bouton_règles.classList.remove("stats");
+
+            bouton_demarrer.classList.add("statslocked");
+            bouton_règles.classList.add("statslocked");
+        }
+
+//////////////////// AUGMENTATION DE LA VITESSE / NB ANIMAUX A LA FOIS ////////////////////
+
+        function divTimerBy20Percent(){
+            //console.log("timer :" + timer)
+            timer = timer * 0.80;
+            affichageVitesse();
+
+            clearInterval(interval);
+            interval = setInterval(createAnimal, timer);
+        }
+
+//////////////////// DISPARITION ANIMAUX ////////////////////
+
+        function disparitionAnimaux(id){
+
+            setTimeout(clignote, 2500, id)
+            setTimeout(clignote, 2700, id)
+
+            setTimeout(clignote, 3750, id)
+            setTimeout(clignote, 3950, id)
+
+
+            setTimeout(clignote, 5000, id)
+            setTimeout(clignote, 5100, id)
+
+            setTimeout(clignote, 5625, id)
+            setTimeout(clignote, 5725, id)
+
+            setTimeout(clignote, 6250, id)
+            setTimeout(clignote, 6350, id)
+
+            setTimeout(clignote, 7500, id)
+            setTimeout(clignote, 7550, id)
+
+
+            setTimeout(clignote, 7812, id)
+            setTimeout(clignote, 7912, id)
+
+            setTimeout(clignote, 8124, id)
+            setTimeout(clignote, 8224, id)
+
+            setTimeout(clignote, 8436, id)
+            setTimeout(clignote, 8536, id)
+
+            setTimeout(clignote, 8748, id)
+            setTimeout(clignote, 8848, id)
+
+            setTimeout(clignote, 9060, id)
+            setTimeout(clignote, 9160, id)
+
+            setTimeout(clignote, 9372, id)
+            setTimeout(clignote, 9472, id)
+
+            setTimeout(clignote, 9684, id)
+            setTimeout(clignote, 9784, id)
+
+            setTimeout(clignote, 9996, id)
+            setTimeout(clignote, 1000, id)
+
+            animal = document.getElementById(id)
+        }
+
+        function clignote(id){
+            animal = document.getElementById(id)
+            if(animal != null){
+                if(animal.style.opacity == "1"){
+                animal.style.opacity = "0.3"
+                }else{
+                    animal.style.opacity = "1"
+                }
+            }
+            
+        }
+
+        function clickAnimaux(animal){
+
+            if (animal.class == "cochon"){
+                ajouter_score(100)
+
+            }else{
+                if(animal.class == "lapin"){
+                    ajouter_score(200)
+
+                }else{
+                    ajouter_score(500)
+                    
+                }
+            }
+            var grandparent_animal = document.getElementById("jeu")
+            var parent_animal = animal.parentNode
+            //console.log("animal : " + animal)
+            //console.log("parent animal : " + parent_animal)
+            //console.log("grandparent animal : " + grandparent_animal)
+            grandparent_animal.removeChild(parent_animal)
+        }
+
+
+
+//////////////////// FIN DE PARTIE ////////////////////
+
+        function testPerdu(id){
+
+            //console.log(id)
+            animal = document.getElementById(id);
+
+
+            if(animal != null){
+
+                animal.setAttribute('onclick', "")
+                if(fin_partie == "non"){
+                   perdu(); 
+                }
+                
+            }
+        }
+
+        function perdu(){
+
+            ajouter_partie()
+            réinitialiser_score_vitesse()
+
+            clearInterval(interval);
+            clearInterval(ten_sec);
+
+            console.log("PERDU HEHEHE");
+            unlockButtons();
+            affichage_temps_perdu();
+
+            var bouton_demarrer = document.getElementById("demarrer_partie")
+            bouton_demarrer.innerHTML = "Rejouer ?"
+
+            fin_partie = "oui"
+            createAnimal()
+            
+        }
+
+        function clearAnimaux(){
+
+            var div_jeu = document.getElementById("jeu")
+
+            while(div_jeu.hasChildNodes()) {
+
+                
+                div_jeu.removeChild(div_jeu.firstChild)
+
+            }
+        }
+
+        function unlockButtons(){
+
+            bouton_demarrer = document.getElementById("demarrer_partie");
+            bouton_règles = document.getElementById("règles");
+
+            bouton_demarrer.setAttribute('onclick', "debut_partie();lockButtons()")
+            bouton_règles.setAttribute('onclick', "règles()")
+
+            bouton_demarrer.classList.remove("statslocked");
+            bouton_règles.classList.remove("statslocked");
+
+            bouton_demarrer.classList.add("stats");
+            bouton_règles.classList.add("stats");
+        }
+
+
+
+///////////////  AFFICHAGE : NB PARTIES / SCORE / VITESSE / TEMPS TOTAL / REGLES ///////////////
+
+
+        function ajouter_partie(){
+            if(fin_partie == "non"){
+               nb_parties++;
+
+                var elem = document.getElementById("nombre_parties")
+                elem.innerHTML = nb_parties; 
+            }
+        }
+
+        function ajouter_score(montant){
+            var elem = document.getElementById("score")
+            score = score + montant         //score : variable globale
+            elem.innerHTML = score + "pts"  // affichage score
+        }
+
+        function réinitialiser_score_vitesse(){
+            score = 0;
+            var elem = document.getElementById("score");
+            elem.innerHTML = score;
+
+            timer = 2000; //valeur par defaut = 2 sec
+            affichageVitesse()
+
+        }
+
+        function affichageVitesse(){
+            var elem = document.getElementById("vitesse")
+            
+            var nb = (2 / timer) * 1000 ;
+            // BUT : ARRONDIR à 10^-2 , Ex timer = 5.56845
+            var arrondi = nb * 100;           // 556.845
+            arrondi = Math.round(arrondi);  // 556
+            arrondi = arrondi/100;          // 5.56
+            elem.innerHTML = "x" + arrondi  // affichage vitesse
+        }
+
+        function affichage_temps_perdu(){
+
+            if(fin_partie == "non"){
+                var interval_total_partie = new Date().getTime() - time_debut_partie;
+
+                var div_temps = document.getElementById("temps_perdu")
+
+                interval_total_partie = interval_total_partie / 1000 // De millisecondes en secondes
+
+                temps_total_parties = temps_total_parties + interval_total_partie;
+
+                if(temps_total_parties < 60){                        // Temps en secondes avec arrondissement 10^-2
+
+                    var arrondi = temps_total_parties * 100;       
+                    arrondi = Math.round(arrondi);  
+                    arrondi = arrondi / 100; 
+
+                    div_temps.innerHTML = arrondi + "sec"
+
+                }else{
+                    if(temps_total_parties < 3600){                  // Temps en minutes avec arrondissement 10^-2
+
+                        arrondi = (temps_total_parties / 60) * 100;      
+                        arrondi = Math.round(arrondi);  
+                        arrondi = arrondi / 100;
+
+                        div_temps.innerHTML = arrondi + "minute(s)"
+
+                    }else{                                           // Temps en heures avec arrondissement 10^-2
+
+                        arrondi = (temps_total_parties / 3600) * 100;       
+                        arrondi = Math.round(arrondi);  
+                        arrondi = arrondi / 100;
+
+                        div_temps.innerHTML = arrondi + "heure(s)"
+                    }
+                }
+            }
+        }
+
+        function règles(){
+            alert("Les règles sont simples, il faut clicker sur les animaux avant qu'ils ne disparaissent, plus le temps passe plus il y en a. Bonne chance !")
+        }
+
+    </script>
+</html>

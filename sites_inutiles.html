@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin:0;
+                background-color: #8ABAF5;
+            }
+
+            nav {
+                /* Entête fixe en haut de page */
+                position: sticky;
+                top: 0;
+                display :flex;
+                justify-content: center;
+                z-index: 2;
+                flex-direction: column;
+                background-color: #8ABAF5;
+                /*background-color: white;*/
+            }
+
+            #navigation input{
+                display: flex;
+                float: left;
+                flex-wrap: wrap;
+                flex : 1;
+                flex-grow: 1;
+                justify-content: center;
+            }
+            #navigation, #titre_site{
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            input {
+                background-color: #CDCDCD;
+                text-align: center;
+                padding: 14px 16px;
+                font-family: verdana;
+                border:none;
+            }
+
+            input:hover:not(.active){
+                background-color: #C1C1C1;
+            }
+            .active{
+                background-color: #9696A0;
+            }
+
+            .corps{
+                display: flex;
+                margin-top:10px;
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+                z-index: 1; 
+                position : relative;
+
+            }
+            p{
+                font-family: Verdana;
+            }
+            a{
+                padding-bottom:0px;
+                margin:none;
+            }
+
+            .description{
+                background-color: #CDCDCD;
+                padding : 20px 0px 20px 0px;
+                position : relative;
+                width: 600px;
+
+            }
+            #commentaire{
+
+                border-top: solid black; 
+                border-bottom: solid black; 
+                width:700px;
+                padding: 10px;
+            }
+            #pied_page{
+
+                display:flex;
+                flex-direction: left;
+                justify-content: center;
+                border-top: solid black; 
+                border-bottom: solid black; 
+                width: 1000px;
+                padding-top:10px;
+            }
+            .img_pied_page{
+                width: 50px;
+                height: 50px;
+                margin: 0px 10px 0px 10px;
+            }
+
+            .gras{
+                font-family: fantasy; 
+
+            }
+            footer p{
+                width: 420px; 
+                font-size:20px;
+                font-style: italic;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <head>
+            <nav>  
+
+                <div id="titre_site" >
+                    <p style="font-family: fantasy; font-size: 35px; margin:10px">Useless Site</p>
+                </div>
+
+                <div id = "navigation">
+                    <a href="accueil.html"> <input type="button" value="Accueil"> </a>
+                    <a href="a_lire_absolument.html"> <input type="button" value="A lire ABSOLUMENT"> </a>
+                    <a href="sites_inutiles.html"> <input type="button" class ="active" value="Sites inutiles"> </a>
+                    <a href="choses_a_faire.html"> <input type="button" value="Choses a faire inutiles"> </a>
+                    <a href="a_vous_de_jouer.html"> <input type="button" value="A vous de jouer !"> </a>
+                    <a href="qui_sommes_nous.html"> <input type="button" value="Qui sommes-nous ?"> </a>
+
+                </div>
+
+            </nav>
+        </head>
+        <main>
+            <div id="corps" class = "corps">
+                <h1>Classement des sites les plus inutiles</h1>
+
+                <br>
+
+                <center>
+                    <p id="commentaire">Je vous vois vous ennuyer sur votre ordi... OUI VOUS ! Voici plusieurs sites complètement inutiles pour remedier à cela.</p>
+                </center>
+
+                <h3>Pointer Pointer</h3>
+
+                <a href="https://pointerpointer.com/" target="_blank">
+                    <img src="Images/pointer.jpg">
+                </a>
+                <center>
+                    <div class="description">
+                        <p>Un site très utile si jamais vous perdez votre curseur. (Ça peut arriver)</p>
+                    </div>
+                </center>
+
+                <br>
+
+                <h3>Staggering</h3>
+
+                <a href="http://www.staggeringbeauty.com/" target="_blank">
+                    <img src="Images/verquibouge.jpg">
+                </a>
+                <center>
+                    <div class="description">
+                        <p>Secouez, secouez fort. Convulsez. Réveillez-vous. Recommencez.</p>
+                    </div>
+                </center>   
+
+                <br><br>
+
+                <h3>Slap</h3>
+
+                <a href="http://eelslap.com/" target="_blank">
+                    <img style="width:600px" src="Images/salmonslap.png">
+                </a>
+                <center>
+                    <div class="description">
+                        <p>Vous aimez les anguilles ? Envie de baffer quelqu’un ?<br>Etrange à quel point ces deux questions arrivent à <br>s'entremêler ...</p>
+                    </div>
+                </center>
+
+                <br><br>
+
+                <h3>Ouais mais bon</h3>
+
+                <a href="http://www.ouaismaisbon.ch/" target="_blank">
+                    <img style="width:600px" src="Images/ouaismaisbon.png">
+                </a>
+                <center>
+                    <div class="description">
+                        <p>Ouais... mais... bon... <br>Bon... ouais... mais...<br>Mais... j'en suis à où déjà ?</p>
+                    </div>
+                </center>
+
+                <br><br>
+
+                <h3>Toilet paper</h3>
+
+                <a href="http://www.papertoilet.com/" target="_blank">
+                    <img style="width:600px" src="Images/toiletpaper.png">
+                </a>
+                <center>
+                    <div class="description">
+                        <p>Pour ne plus stresser à cause du papier toilette avec<br> cette période post-Covid19</p>
+                    </div>
+                </center>
+
+                <br><br>
+
+                <h3>Savoir inutile</h3>
+
+                <a href="https://www.savoir-inutile.com/tops" target="_blank">
+                    <img style="width:600px" src="Images/uselessfact.PNG">
+                </a>
+                <center>
+                    <div class="description">
+                        <p>Le parachute a été inventé plus de 100 ans avant l'avion. <br>QUOI !? Vous vous en fichez ???</p>
+                    </div>
+                </center>
+            </div>
+
+            <br><br><br><br>
+
+        </main>
+        <footer>
+            <center>
+                <div id="pied_page">
+
+                    <p><b class="gras">Useless site</b> in collaboration with <b class="gras">Efrei Paris</b></p>
+                    <a href="https://www.facebook.com/" target="_blank">
+                        <img class="img_pied_page" src="Images/facebook.png">
+                    </a>
+                    <a href="https://www.instagram.com/?hl=fr" target="_blank">
+                        <img class="img_pied_page" src="Images/instagram.png">
+                    </a>
+                    <a href="https://twitter.com/" target="_blank">
+                        <img class="img_pied_page" src="Images/twitter.png">
+                    </a>
+                    <a href="https://www.efrei.fr/" target="_blank">
+                        <img style="width: 120px; height:50px; margin-left: 10px" src="Images/efrei.png">
+                    </a>
+                    
+                </div>
+
+            </center>
+
+            <br><br><br><br><br><br>
+        </footer>
+
+    </body>
+
+    <script>
+    </script>
+</html>
